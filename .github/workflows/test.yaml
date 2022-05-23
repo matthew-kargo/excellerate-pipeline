@@ -1,12 +1,18 @@
 ---
 name: Build Docker Image
 
-on: push
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
-  deploy:
-    name: Build Application
+  build: 
+    runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - run: echo Continue here...
+      name: Build Application
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - run: echo Continue here...
