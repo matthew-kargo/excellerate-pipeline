@@ -2,7 +2,9 @@
 name: Run Test
 
 on: 
-  pull_request
+  push:
+    branches: 
+      - master
 
 jobs:
   deploy: 
@@ -11,4 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: echo Continue here...
+      - name: running the test 
+        run: |
+          cd node
+          npm install
+          npm test
