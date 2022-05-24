@@ -13,4 +13,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
+      - name: Build doker image
+        run: |
+          cd node
+          docker build -t temp/build .
         
